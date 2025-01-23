@@ -1,0 +1,53 @@
+sexta_entrega
+│
+├── pom.xml
+├── README.md
+├── scripts
+│   ├── schema.sql
+│   └── data.sql
+│
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com
+│   │   │       └── coderhouse
+│   │   │           └── biblioteca
+│   │   │               ├── SpringBootBibliotecaApplication.java
+│   │   │               ├── controller
+│   │   │               │   ├── AutorController.java
+│   │   │               │   ├── EditorialController.java
+│   │   │               │   ├── LibroController.java
+│   │   │               │   ├── PrestamoController.java
+│   │   │               │   └── SocioController.java
+│   │   │               ├── dto
+│   │   │               │   ├── AutorDTO.java
+│   │   │               │   ├── EditorialDTO.java
+│   │   │               │   ├── LibroDTO.java
+│   │   │               │   ├── PrestamoDTO.java
+│   │   │               │   ├── SocioDTO.java
+│   │   │               │   └── Mapper.java
+│   │   │               ├── model
+│   │   │               │   ├── Autor.java
+│   │   │               │   ├── Editorial.java
+│   │   │               │   ├── Libro.java
+│   │   │               │   ├── Prestamo.java
+│   │   │               │   └── Socio.java
+│   │   │               ├── repository
+│   │   │               │   ├── AutorRepository.java
+│   │   │               │   ├── EditorialRepository.java
+│   │   │               │   ├── LibroRepository.java
+│   │   │               │   ├── PrestamoRepository.java
+│   │   │               │   └── SocioRepository.java
+│   │   │               └── service
+│   │   │                   ├── AutorService.java
+│   │   │                   ├── EditorialService.java
+│   │   │                   ├── LibroService.java
+│   │   │                   ├── PrestamoService.java
+│   │   │                   └── SocioService.java
+│   │   └── resources
+│   │       ├── application.properties
+│   │       ├── schema.sql
+│   │       └── data.sql
+│   └── test
+│       └── java
+│           └── ...
