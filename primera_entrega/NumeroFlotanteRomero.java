@@ -1,11 +1,11 @@
 /*
- * Nombre del archivo: NumeroFlotanteJeshuaRomeroGuadarrama.java
+ * Nombre del archivo: NumeroFlotanteRomero.java
  * Descripción: Pide al usuario un número (float), mostrando su parte entera y decimal.
  */
 
 import java.util.Scanner;
 
-public class NumeroFlotanteJeshuaRomeroGuadarrama {
+public class NumeroFlotanteRomero {
     public static void main(String[] args) {
 
         // Se crea un objeto Scanner para leer datos desde el teclado
