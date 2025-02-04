@@ -1,7 +1,7 @@
 /*
  * El archivo contiene dos clases:
  *    1) Clase "Persona": Define a una persona con dos atributos: nombre y apellido.
- *    2) Clase "PersonaMain": Contiene el método main y la lógica de ordenamiento.
+ *    2) Clase "ListarPersonasRomero": Contiene el método main y la lógica de ordenamiento.
  * 
  * El programa crea 5 objetos de tipo Persona con nombres y apellidos, los agrega a una lista y muestra la lista ordenada por:
  *    - Nombre (ascendente)
@@ -140,7 +140,6 @@
              System.out.println(p);
          }
          
-         // Fin del programa
      }
  }
  
