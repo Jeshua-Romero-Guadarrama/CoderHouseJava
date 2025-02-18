@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Representa un Autor de uno o varios libros.
+ * Representa un Autor que puede escribir uno o varios libros.
  */
 @Entity
 @Table(name = "autores")
@@ -22,8 +22,8 @@ public class Autor {
     private String nacionalidad;
 
     /**
-     * Relación ManyToMany inversa: se mapea desde la propiedad 'autores'
-     * en la clase Libro, por eso aquí usamos 'mappedBy'.
+     * Relación ManyToMany inversa: se referencia desde la propiedad 'autores'
+     * en la clase Libro con 'mappedBy'.
      */
     @ManyToMany(mappedBy = "autores")
     private List<Libro> libros = new ArrayList<>();
@@ -32,7 +32,7 @@ public class Autor {
     public Autor() {
     }
 
-    // Constructor adicional
+    // Constructor adicional para conveniencia
     public Autor(String nombre, String nacionalidad) {
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;

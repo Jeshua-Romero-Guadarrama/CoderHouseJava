@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 /**
- * Representa un préstamo de un libro a un socio,
+ * Representa un Préstamo de un Libro a un Socio,
  * con fechas de préstamo y de devolución.
  */
 @Entity
@@ -16,7 +16,7 @@ public class Prestamo {
     private Long id;
 
     /**
-     * Muchos préstamos pertenecen a un socio (ManyToOne).
+     * Muchos préstamos pertenecen a un mismo socio (ManyToOne).
      */
     @ManyToOne
     @JoinColumn(name = "socio_id", nullable = false)
@@ -35,7 +35,7 @@ public class Prestamo {
     @Column(name = "fecha_devolucion")
     private LocalDate fechaDevolucion;
 
-    // Constructor vacío
+    // Constructor vacío requerido por JPA
     public Prestamo() {
     }
 

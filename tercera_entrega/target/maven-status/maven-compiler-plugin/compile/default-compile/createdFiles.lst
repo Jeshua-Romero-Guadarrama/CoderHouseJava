@@ -1,0 +1,6 @@
+com\coderhouse\biblioteca\entidad\Editorial.class
+com\coderhouse\biblioteca\entidad\Autor.class
+com\coderhouse\biblioteca\entidad\Prestamo.class
+com\coderhouse\biblioteca\main\Principal.class
+com\coderhouse\biblioteca\entidad\Socio.class
+com\coderhouse\biblioteca\entidad\Libro.class

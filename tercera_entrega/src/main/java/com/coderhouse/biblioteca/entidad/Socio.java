@@ -1,19 +1,11 @@
 package com.coderhouse.biblioteca.entidad;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
 /**
- * Representa un Socio de la biblioteca (una persona que puede retirar libros).
+ * Representa un Socio de la biblioteca (una persona que retira libros).
  */
 @Entity
 @Table(name = "socios")
@@ -28,11 +20,13 @@ public class Socio {
 
     /**
      * Un socio puede tener múltiples préstamos a lo largo del tiempo.
+     * Se utiliza orphanRemoval=true para eliminar automáticamente
+     * los préstamos asociados si se elimina el socio.
      */
     @OneToMany(mappedBy = "socio", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Prestamo> prestamos = new ArrayList<>();
 
-    // Constructor vacío
+    // Constructor vacío requerido por JPA
     public Socio() {
     }
 

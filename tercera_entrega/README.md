@@ -1,51 +1,135 @@
-# Proyecto Biblioteca (Java + JPA/H2)
 
-Este proyecto demuestra un sistema básico de Biblioteca usando **Java** y **JPA** con **Hibernate** como proveedor, y **H2** como base de datos local (en archivo).
+# Proyecto Biblioteca (Java + JPA + Hibernate + H2)
 
-## Descripción
+Este proyecto consiste en un sistema básico de Biblioteca desarrollado en **Java** usando **JPA** (con **Hibernate** como proveedor) y **H2** como base de datos embebida (en archivo). 
+Permite gestionar libros, autores, editoriales, socios y préstamos.
 
-- **Editorial**: Una editorial publica varios libros (OneToMany).
-- **Libro**: Cada libro pertenece a una editorial y puede tener varios autores (ManyToOne y ManyToMany).
-- **Autor**: Un autor puede escribir varios libros (ManyToMany).
-- **Socio**: Representa a un usuario de la biblioteca.
-- **Préstamo**: Relaciona un socio con un libro prestado (ManyToOne).
+---
 
-## Requisitos
+## 1. Requerimientos
 
-- Java 8+  
-- Visual Studio Code con:
+- **Java 8+**  
+- **Maven 3+**  
+- **Visual Studio Code** con:
   - [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)  
-  - (Opcional) [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
+  - [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
 
-## Estructura del proyecto
+---
 
+## 2. Estructura del Proyecto
+
+```plaintext
+tercera_entrega
+│
+├── pom.xml
+├── README.md
+│
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── com
+│   │   │       └── coderhouse
+│   │   │           └── biblioteca
+│   │   │               ├── entidad
+│   │   │               │   ├── Autor.java
+│   │   │               │   ├── Editorial.java
+│   │   │               │   ├── Libro.java
+│   │   │               │   ├── Prestamo.java
+│   │   │               │   └── Socio.java
+│   │   │               └── main
+│   │   │                   └── Principal.java
+│   │   └── resources
+│   │       └── META-INF
+│   │           └── persistence.xml
+│   └── test
+│       └── java
+│           └── ...
+│
+└── target
+    └── ...
 ```
-biblioteca
 
+---
+
+## 3. Descripción de Clases
+
+- **Editorial**  
+  Representa la editorial que publica uno o varios libros.
+
+- **Autor**  
+  Representa un autor de uno o varios libros. Posee una relación **ManyToMany** con `Libro`.
+
+- **Libro**  
+  Cada libro pertenece a una editorial (**ManyToOne**) y puede tener varios autores (**ManyToMany**).
+
+- **Socio**  
+  Representa a un usuario de la biblioteca que puede retirar libros.
+
+- **Préstamo**  
+  Relaciona un socio con un libro, indicando fechas de préstamo y devolución.
+
+---
+
+## 4. Configuración de la Base de Datos (H2)
+
+En el archivo `persistence.xml`, se establece:
+```xml
+<property name="javax.persistence.jdbc.driver"   value="org.h2.Driver"/>
+<property name="javax.persistence.jdbc.url"      value="jdbc:h2:file:./db/biblioteca;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE"/>
+<property name="javax.persistence.jdbc.user"     value="sa"/>
+<property name="javax.persistence.jdbc.password" value=""/>
+<property name="hibernate.dialect"               value="org.hibernate.dialect.H2Dialect"/>
+<property name="hibernate.hbm2ddl.auto"          value="update"/>
+<property name="hibernate.show_sql"              value="true"/>
+<property name="hibernate.format_sql"            value="true"/>
 ```
+Esto hará que, al ejecutar la aplicación, se cree (o actualice) un archivo de base de datos en la ruta `./db/biblioteca.mv.db`.
 
-## Ejecución en VS Code
+Para visualizar y editar la base de datos H2:
 
-1. Clonar o descargar este repositorio.
-2. Abrir la carpeta `biblioteca` en VS Code.
-3. Verificar que tengas Java y las extensiones de Java instaladas.
-4. En la **terminal integrada** (View → Terminal), puedes ejecutar:
+1. Descarga [H2 Database Engine](https://h2database.com/html/download.html).
+2. Ejecuta el jar:
+   ```bash
+   java -jar h2-<version>.jar
+   ```
+3. Abre la consola web (normalmente en `http://localhost:8082`).
+4. Usa la configuración:
+   - **JDBC URL**: `jdbc:h2:file:./db/biblioteca`
+   - **User**: `sa`
+   - **Password**: *(vacío)*
+
+---
+
+## 5. Ejecución del Proyecto
+
+### 5.1. Compilar y Ejecutar desde la Terminal
+
+1. Asegúrate de tener **Maven** instalado (ejecuta `mvn -version`).
+2. Desde la raíz del proyecto (donde está el `pom.xml`), compila con:
    ```bash
    mvn clean compile
-   mvn exec:java -Dexec.mainClass="biblioteca.main.Principal"
    ```
-   o bien usar el explorador de proyectos Java y hacer clic en “Run” sobre `Principal.java`.
+3. Ejecuta la clase principal `Principal` con:
+   ```bash
+   mvn exec:java '-Dexec.mainClass=com.coderhouse.biblioteca.main.Principal'
+   ```
 
-## Base de datos H2
+### 5.2. Ejecución en Visual Studio Code
 
-- Se creará un archivo `biblioteca.mv.db` en la carpeta `db/` (ver configuración en `persistence.xml`).
-- Para revisar su contenido, puedes:
-  1. Descargar el [jar de H2](https://h2database.com/html/download.html).
-  2. Ejecutarlo con `java -jar h2-xxx.jar`.
-  3. En la consola web (generalmente `http://localhost:8082`):
-     - **JDBC URL**: `jdbc:h2:file:./db/biblioteca`
-     - **User**: `sa`
-     - **Password**: *(vacío)*
-  4. Pulsa “Connect” y podrás ver y editar las tablas.
+1. Instala el [Extension Pack for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
+2. Abre la carpeta del proyecto (`tercera_entrega`) en VS Code.
+3. Ubica el archivo `Principal.java`.
+4. Haz clic en la opción de “Run” o “Debug” que aparece encima de la función `main`.
+5. Revisa la consola en la zona de “Terminal” o “Debug Console”.
 
-  
+---
+
+## 6. Ejemplo de Uso
+
+La clase `Principal` tiene un ejemplo básico donde:
+1. Crea una `Editorial` y la persiste.
+2. Crea un `Autor` y lo persiste.
+3. Crea un `Libro`, lo asocia con la editorial y con el autor, y lo persiste.
+4. Crea un `Socio` y lo persiste.
+5. Genera un `Prestamo` relacionando al socio y al libro, persiste la información.
+6. Imprime un mensaje de confirmación.

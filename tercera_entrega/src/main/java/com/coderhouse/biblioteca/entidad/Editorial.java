@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Representa la Editorial que publica un conjunto de Libros.
+ * Representa una Editorial que publica varios Libros.
  */
 @Entity
 @Table(name = "editoriales")
@@ -19,9 +19,9 @@ public class Editorial {
     private String nombre;
 
     /**
-     * Una editorial puede tener muchos libros.
-     * El 'mappedBy' indica que la relación se mapea desde la propiedad
-     * 'editorial' de la clase Libro.
+     * Una editorial puede poseer muchos libros.
+     * 'mappedBy' indica que esta relación se gestiona desde
+     * la propiedad 'editorial' en la clase Libro.
      */
     @OneToMany(mappedBy = "editorial", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Libro> libros = new ArrayList<>();

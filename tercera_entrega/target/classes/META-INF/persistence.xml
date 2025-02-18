@@ -4,25 +4,32 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
                                  http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
-  <persistence-unit name="BibliotecaPU">
-    <!-- Listado de clases de entidad -->
-    <class>com.coderhouse.biblioteca.entidad.Autor</class>
-    <class>com.coderhouse.biblioteca.entidad.Editorial</class>
-    <class>com.coderhouse.biblioteca.entidad.Libro</class>
-    <class>com.coderhouse.biblioteca.entidad.Prestamo</class>
-    <class>com.coderhouse.biblioteca.entidad.Socio</class>
-    <properties>
-      <!-- Configuración para PostgreSQL -->
-      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/biblioteca"/>
-      <property name="javax.persistence.jdbc.user" value="postgres"/>
-      <property name="javax.persistence.jdbc.password" value="tuPassword"/>
-      <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-      
-      <!-- Actualiza el esquema y muestra las sentencias SQL -->
-      <property name="hibernate.hbm2ddl.auto" value="update"/>
-      <property name="hibernate.show_sql" value="true"/>
-      <property name="hibernate.format_sql" value="true"/>
-    </properties>
-  </persistence-unit>
+
+    <!-- Nombre del persistence-unit -->
+    <persistence-unit name="BibliotecaPU">
+        <!-- Clases de entidad -->
+        <class>com.coderhouse.biblioteca.entidad.Autor</class>
+        <class>com.coderhouse.biblioteca.entidad.Editorial</class>
+        <class>com.coderhouse.biblioteca.entidad.Libro</class>
+        <class>com.coderhouse.biblioteca.entidad.Prestamo</class>
+        <class>com.coderhouse.biblioteca.entidad.Socio</class>
+
+        <properties>
+            <!-- Configuración para H2 (sin AUTO_SERVER para evitar errores en v2.1.214) -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:file:./db/biblioteca;DB_CLOSE_ON_EXIT=FALSE" />
+            <property name="javax.persistence.jdbc.user" value="sa" />
+            <property name="javax.persistence.jdbc.password" value="" />
+
+            <!-- Dialecto de Hibernate para H2 -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+
+            <!-- Crear/actualizar las tablas automáticamente al iniciar -->
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+
+            <!-- Mostrar sentencias SQL en la consola -->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+        </properties>
+    </persistence-unit>
 </persistence>

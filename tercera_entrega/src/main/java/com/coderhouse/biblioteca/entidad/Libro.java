@@ -2,17 +2,7 @@ package com.coderhouse.biblioteca.entidad;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Representa un Libro de la biblioteca.
@@ -36,18 +26,18 @@ public class Libro {
     private Editorial editorial;
 
     /**
-     * Un libro puede tener varios autores y un autor puede tener varios libros.
-     * Esta relación se resuelve con una tabla intermedia (libros_autores).
+     * Relación ManyToMany con Autor.
+     * Se utiliza una tabla intermedia llamada 'libros_autores'.
      */
     @ManyToMany
     @JoinTable(
-            name = "libros_autores",
-            joinColumns = @JoinColumn(name = "libro_id"),
-            inverseJoinColumns = @JoinColumn(name = "autor_id")
+        name = "libros_autores",
+        joinColumns = @JoinColumn(name = "libro_id"),
+        inverseJoinColumns = @JoinColumn(name = "autor_id")
     )
     private List<Autor> autores = new ArrayList<>();
 
-    // Constructor vacío
+    // Constructor vacío requerido por JPA
     public Libro() {
     }
 
