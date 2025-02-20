@@ -1,0 +1,5 @@
+com\ejemplo\repository\ClienteRepository.class
+com\ejemplo\ClienteApiRestRomeroApplication.class
+com\ejemplo\controller\ClienteController.class
+com\ejemplo\model\Cliente.class
+com\ejemplo\service\ClienteService.class
