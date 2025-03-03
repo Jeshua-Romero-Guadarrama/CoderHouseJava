@@ -1,0 +1,101 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="
+            http://maven.apache.org/POM/4.0.0 
+            http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <!-- Información básica del proyecto -->
+    <groupId>com.coderhouse.biblioteca</groupId>
+    <artifactId>spring-boot-biblioteca</artifactId>
+    <version>1.0.0</version>
+    <name>SpringBootBiblioteca</name>
+    <description>Proyecto de Biblioteca en Spring Boot con JPA y H2</description>
+    <packaging>jar</packaging>
+
+    <!-- Configuraciones de propiedades -->
+    <properties>
+        <!-- Versión de Java -->
+        <java.version>21</java.version>
+        <spring.boot.version>3.0.4</spring.boot.version>
+    </properties>
+
+    <!-- Repositorios de Maven -->
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
+
+    <!-- Dependencias del proyecto -->
+    <dependencies>
+        <!-- Starter de Spring Boot -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
+        <!-- Starter Web (para exponer controladores REST) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+        
+        <!-- Starter Data JPA (Spring Data + Hibernate) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
+        <!-- Base de datos en memoria H2 -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>2.1.214</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Lombok: para reducir código boilerplate (getters/setters). -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!-- Plugins de build -->
+    <build>
+        <plugins>
+            <!-- Plugin de Spring Boot para empaquetar la aplicación -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Plugin del compilador de Maven -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
