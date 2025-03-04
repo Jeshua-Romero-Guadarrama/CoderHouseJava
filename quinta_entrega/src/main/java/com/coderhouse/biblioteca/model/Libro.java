@@ -1,8 +1,20 @@
 package com.coderhouse.biblioteca.model;
 
-import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 /**
  * Entidad que representa un Libro dentro de la Biblioteca.
@@ -26,6 +38,7 @@ public class Libro {
      */
     @ManyToOne
     @JoinColumn(name = "editorial_id", nullable = false)
+    @JsonBackReference
     private Editorial editorial;
 
     /**

@@ -144,3 +144,99 @@ curl.exe -X GET "http://localhost:9090/api/libros"
 ```bash
 curl.exe -X GET "http://localhost:9090/api/prestamos"
 ```
+
+### Ejemplo 5: Consultar una Editorial por ID
+
+```bash
+curl.exe -X GET http://localhost:9090/api/editoriales/1
+```
+
+### Ejemplo 6: Crear una Editorial
+
+```bash
+curl.exe -X POST "http://localhost:9090/api/editoriales" -H "Content-Type: application/json" -d "{\"nombre\": \"Nueva Editorial desde POST\"}"
+```
+
+### Ejemplo 7: Crear un Autor
+
+```bash
+curl.exe -X POST "http://localhost:9090/api/autores" -H "Content-Type: application/json" -d "{\"nombre\": \"Autor Creado por POST\", \"nacionalidad\": \"Argentina\"}"
+```
+
+### Ejemplo 8: Crear un Libro
+
+```bash
+curl.exe -X POST "http://localhost:9090/api/libros" -H "Content-Type: application/json" -d "{\"titulo\": \"Libro Nuevo\", \"editorial\": {\"id\": 1}, \"autores\": [{\"id\": 1}, {\"id\": 2}]}"
+```
+
+### Ejemplo 9: Crear un Socio
+
+```bash
+curl.exe -X POST "http://localhost:9090/api/socios" -H "Content-Type: application/json" -d "{\"nombre\": \"Socio Nuevo\"}"
+```
+
+### Ejemplo 14: Crear un Préstamo
+
+```bash
+curl.exe -X POST "http://localhost:9090/api/prestamos" -H "Content-Type: application/json" -d "{\"socio\": {\"id\": 2}, \"libro\": {\"id\": 5}, \"fechaPrestamo\": \"2025-03-01\", \"fechaDevolucion\": null}"
+```
+
+### Ejemplo 10: Actualizar una Editorial
+
+```bash
+curl.exe -X PUT "http://localhost:9090/api/editoriales/1" -H "Content-Type: application/json" -d "{\"nombre\": \"Editorial Actualizada\"}"
+```
+
+### Ejemplo 11: Actualizar un Autor
+
+```bash
+curl.exe -X PUT "http://localhost:9090/api/autores/1" -H "Content-Type: application/json" -d "{\"nombre\": \"Autor Modificado\", \"nacionalidad\": \"Chile\"}"
+```
+
+### Ejemplo 12: Actualizar un Libro
+
+```bash
+curl.exe -X PUT "http://localhost:9090/api/libros/1" -H "Content-Type: application/json" -d "{\"titulo\": \"Título Modificado\", \"editorial\": {\"id\": 2}, \"autores\": [{\"id\": 3}]}"
+```
+
+### Ejemplo 13: Actualizar un Socio
+
+```bash
+curl.exe -X PUT "http://localhost:9090/api/socios/1" -H "Content-Type: application/json" -d "{\"nombre\": \"Socio Editado\"}"
+```
+
+### Ejemplo 15: Actualizar un Préstamo
+
+```bash
+curl.exe -X POST "http://localhost:9090/api/prestamos" -H "Content-Type: application/json" -d "{\"socio\": {\"id\": 2}, \"libro\": {\"id\": 5}, \"fechaPrestamo\": \"2025-03-01\", \"fechaDevolucion\": null}"
+```
+
+### Ejemplo 16: Eliminar una Editorial
+
+```bash
+curl.exe -X DELETE "http://localhost:9090/api/editoriales/1"
+```
+
+### Ejemplo 17: Eliminar un Autor
+
+```bash
+curl.exe -X DELETE "http://localhost:9090/api/autores/1"
+```
+
+### Ejemplo 18: Eliminar un Libro
+
+```bash
+curl.exe -X DELETE "http://localhost:9090/api/libros/1"
+```
+
+### Ejemplo 19: Eliminar un Socio
+
+```bash
+curl.exe -X DELETE "http://localhost:9090/api/socios/1"
+```
+
+### Ejemplo 20: Eliminar un Préstamo
+
+```bash
+curl.exe -X DELETE "http://localhost:9090/api/prestamos/1"
+```

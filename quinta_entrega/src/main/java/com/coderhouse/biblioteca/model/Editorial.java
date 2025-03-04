@@ -1,8 +1,18 @@
 package com.coderhouse.biblioteca.model;
 
-import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 /**
  * Entidad que representa una Editorial de libros.
@@ -25,6 +35,7 @@ public class Editorial {
      * "mappedBy" indica que la propiedad "editorial" en la clase Libro (es la dueña de la relación).
      */
     @OneToMany(mappedBy = "editorial", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Libro> libros = new ArrayList<>();
 
     // Constructor vacío
