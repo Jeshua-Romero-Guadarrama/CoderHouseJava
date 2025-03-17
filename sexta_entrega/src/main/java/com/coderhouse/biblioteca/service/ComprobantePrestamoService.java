@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -122,21 +125,24 @@ public class ComprobantePrestamoService {
      */
     private LocalDate obtenerFechaDesdeServicioExterno() {
         try {
-            // RestTemplate para hacer una llamada GET a:
-            // "http://worldclockapi.com/api/json/utc/now"
-            //
-            // RestTemplate restTemplate = new RestTemplate();
-            // ResponseEntity<Map> response = restTemplate.getForEntity("http://worldclockapi.com/api/json/utc/now", Map.class);
-            // Map body = response.getBody();
-            // String currentDateTime = (String) body.get("currentDateTime");  
-            // Ej: "2025-03-16T14:05Z"
-            // LocalDate fecha = LocalDate.parse(currentDateTime.substring(0, 10)); // "YYYY-MM-DD"
-            // return fecha;
-
-            // Simular que falla y hacer fallback:
-            throw new RuntimeException("Fallo en la conexión a worldclockapi");
+            // Crear una instancia de RestTemplate
+            RestTemplate restTemplate = new RestTemplate();
+            // URL del servicio
+            String url = "http://worldclockapi.com/api/json/utc/now";
+            // Realizar la petición GET y recibir la respuesta como Map
+            ResponseEntity<Map> response = restTemplate.getForEntity(url, Map.class);
+            Map body = response.getBody();
+    
+            // Extraer el valor de "currentDateTime", ej. "2025-03-17T16:50Z"
+            String currentDateTime = (String) body.get("currentDateTime");
+            if (currentDateTime == null || currentDateTime.length() < 10) {
+                throw new RuntimeException("La respuesta no contiene currentDateTime válido.");
+            }
+            // Parsear los primeros 10 caracteres ("YYYY-MM-DD") a LocalDate
+            LocalDate fecha = LocalDate.parse(currentDateTime.substring(0, 10));
+            return fecha;
         } catch (Exception e) {
-            // Fallback
+            // Si ocurre cualquier error, usamos el fallback a LocalDate.now()
             return LocalDate.now();
         }
     }
