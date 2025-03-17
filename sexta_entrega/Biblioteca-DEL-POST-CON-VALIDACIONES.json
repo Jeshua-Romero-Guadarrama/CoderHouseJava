@@ -1,0 +1,159 @@
+{
+    "info": {
+        "_postman_id": "03e638e0-1fb4-41d2-b708-c0780be88a2b",
+        "name": "Biblioteca-API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Ejemplo 17 - DELETE /api/editoriales/1",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://localhost:9090/api/editoriales/1",
+                    "path": [
+                        "api",
+                        "editoriales",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 18 - DELETE /api/autores/1",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://localhost:9090/api/autores/1",
+                    "path": [
+                        "api",
+                        "autores",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 19 - DELETE /api/libros/1",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://localhost:9090/api/libros/1",
+                    "path": [
+                        "api",
+                        "libros",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 20 - DELETE /api/socios/1",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://localhost:9090/api/socios/1",
+                    "path": [
+                        "api",
+                        "socios",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 21 - DELETE /api/prestamos/1",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "http://localhost:9090/api/prestamos/1",
+                    "path": [
+                        "api",
+                        "prestamos",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 23 - POST (erroneo) /api/comprobantes",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:9090/api/comprobantes",
+                    "path": [
+                        "api",
+                        "comprobantes"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\r\n  \"socio\": { \"id\": 9999 },\r\n  \"lineas\": [\r\n    { \"cantidad\": 1000, \"libro\": { \"id\": 1 } }\r\n  ]\r\n}"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 22 - POST /api/comprobantes",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:9090/api/comprobantes",
+                    "path": [
+                        "api",
+                        "comprobantes"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\r\n  \"socio\": { \"id\": 1 },\r\n  \"lineas\": [\r\n    { \"cantidad\": 1, \"libro\": { \"id\": 3 } },\r\n    { \"cantidad\": 1, \"libro\": { \"id\": 4 } }\r\n  ]\r\n}"
+                }
+            }
+        }
+    ]
+}

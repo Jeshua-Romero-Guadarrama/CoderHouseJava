@@ -1,0 +1,394 @@
+{
+    "info": {
+        "_postman_id": "cd5f9e0f-5a8e-4e3c-ac6c-6e72e52cb187",
+        "name": "Biblioteca-API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Ejemplo 1 - POST /api/editoriales",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:9090/api/editoriales",
+                    "path": [
+                        "api",
+                        "editoriales"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\r\n  \"nombre\": \"Nueva Editorial desde POST\"\r\n}"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 2 - POST /api/autores",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:9090/api/autores",
+                    "path": [
+                        "api",
+                        "autores"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\r\n  \"nombre\": \"Autor Creado por POST\",\r\n  \"nacionalidad\": \"Argentina\"\r\n}"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 3 - POST /api/libros",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:9090/api/comprobantes",
+                    "path": [
+                        "api",
+                        "comprobantes"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\r\n  \"socio\": { \"id\": 1 },\r\n  \"lineas\": [\r\n    {\r\n      \"cantidad\": 1,\r\n      \"libro\": { \"id\": 1 }\r\n    }\r\n  ]\r\n}\r\n"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 4 - POST /api/socios",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:9090/api/socios",
+                    "path": [
+                        "api",
+                        "socios"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\r\n  \"nombre\": \"Socio Nuevo\"\r\n}\r\n"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 5 - POST /api/prestamos",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:9090/api/prestamos",
+                    "path": [
+                        "api",
+                        "prestamos"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\r\n  \"socioId\": 1,\r\n  \"libroId\": 1,\r\n  \"fechaPrestamo\": \"2025-03-01\",\r\n  \"fechaDevolucion\": null\r\n}"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 6 - GET /api/editoriales",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:9090/api/editoriales",
+                    "path": [
+                        "api",
+                        "editoriales"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 7 - GET /api/autores",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:9090/api/autores",
+                    "path": [
+                        "api",
+                        "autores"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 8 - GET /api/libros",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:9090/api/libros",
+                    "path": [
+                        "api",
+                        "libros"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 9 - GET /api/socios",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:9090/api/socios",
+                    "path": [
+                        "api",
+                        "socios"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 10 - GET /api/prestamos",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:9090/api/prestamos",
+                    "path": [
+                        "api",
+                        "prestamos"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 11 - GET /api/editoriales/1",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:9090/api/editoriales/1",
+                    "path": [
+                        "api",
+                        "editoriales",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 12 - PUT /api/editoriales/1",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://localhost:9090/api/editoriales/1",
+                    "path": [
+                        "api",
+                        "editoriales",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\r\n  \"nombre\": \"Editorial Actualizada\"\r\n}"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 13 - PUT /api/autores/1",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://localhost:9090/api/autores/1",
+                    "path": [
+                        "api",
+                        "autores",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\r\n  \"nombre\": \"Autor Modificado\",\r\n  \"nacionalidad\": \"Chile\"\r\n}"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 14 - PUT /api/libros/1",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://localhost:9090/api/libros/1",
+                    "path": [
+                        "api",
+                        "libros",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\r\n  \"titulo\": \"Título Modificado\",\r\n  \"editorialId\": 2,\r\n  \"autoresIds\": [3]\r\n}"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 15 - PUT /api/socios/1",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://localhost:9090/api/socios/1",
+                    "path": [
+                        "api",
+                        "socios",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\r\n  \"nombre\": \"Socio Editado\"\r\n}"
+                }
+            }
+        },
+        {
+            "name": "Ejemplo 16 - PUT /api/prestamos/1",
+            "request": {
+                "method": "PUT",
+                "url": {
+                    "raw": "http://localhost:9090/api/prestamos/1",
+                    "path": [
+                        "api",
+                        "prestamos",
+                        "1"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9090"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\r\n  \"socioId\": 2,\r\n  \"libroId\": 1,\r\n  \"fechaPrestamo\": \"2025-03-01\",\r\n  \"fechaDevolucion\": null\r\n}"
+                }
+            }
+        }
+    ]
+}
