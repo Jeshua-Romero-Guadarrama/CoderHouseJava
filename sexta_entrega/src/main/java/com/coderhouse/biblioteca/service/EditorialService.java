@@ -43,18 +43,18 @@ public class EditorialService {
      * Guarda (crea o actualiza) una editorial a partir de un EditorialDTO.
      */
     public EditorialDTO guardar(EditorialDTO editorialDTO) {
-        // Convertimos de DTO a Entidad
+        // Convertir de DTO a Entidad
         Editorial editorial = Mapper.dtoToEditorial(editorialDTO);
 
-        // Guardamos en la BD
+        // Guardar en la BD
         Editorial editorialGuardada = editorialRepository.save(editorial);
 
-        // Retornamos como DTO
+        // Retornar como DTO
         return Mapper.editorialToDTO(editorialGuardada);
     }
 
     /**
-     * Elimina una editorial por su ID.
+     * Eliminar una editorial por su ID.
      */
     public void eliminar(Long id) {
         editorialRepository.deleteById(id);

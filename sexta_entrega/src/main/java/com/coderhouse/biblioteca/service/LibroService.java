@@ -52,8 +52,8 @@ public class LibroService {
     }
 
     /**
-     * Guarda (crea o actualiza) un Libro a partir de un LibroDTO.
-     * - Asigna la Editorial y Autores correspondientes antes de guardar.
+     * Guardar (crear o actualizar) un Libro a partir de un LibroDTO.
+     * Asignar la Editorial y Autores correspondientes antes de guardar.
      */
     public LibroDTO guardar(LibroDTO libroDTO) {
         Libro libro;

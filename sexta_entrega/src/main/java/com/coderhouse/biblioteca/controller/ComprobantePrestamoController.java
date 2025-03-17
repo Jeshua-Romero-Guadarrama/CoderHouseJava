@@ -25,7 +25,7 @@ public class ComprobantePrestamoController {
     @PostMapping
     public ResponseEntity<?> crearComprobante(@RequestBody ComprobantePrestamoDTO dto) {
         try {
-            // Llamamos al servicio y retornamos el comprobante si todo va bien.
+            // Llamar al servicio y retornar el comprobante si todo va bien.
             ComprobantePrestamo comprobante = comprobanteService.crearComprobante(dto);
             return ResponseEntity.ok(comprobante);
 

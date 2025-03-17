@@ -53,7 +53,7 @@ public class Libro {
     )
     private List<Autor> autores = new ArrayList<>();
 
-    // ¿Stock de ejemplares disponibles
+    // Stock de ejemplares disponibles
     @Column(name = "stock", nullable = false)
     private int stock;
 

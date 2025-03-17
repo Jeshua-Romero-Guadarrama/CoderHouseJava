@@ -101,7 +101,7 @@ public class ComprobantePrestamoService {
         comprobante.setFechaComprobante(fechaComprobante);
         comprobante.setTotalLibros(totalDeLibros);
 
-        // Primero guardamos el comprobante (para obtener ID)
+        // Primero guardar el comprobante (para obtener ID)
         comprobante = comprobanteRepository.save(comprobante);
 
         // 5) Vincular cada detalle con el comprobante y guardar
@@ -122,10 +122,9 @@ public class ComprobantePrestamoService {
      */
     private LocalDate obtenerFechaDesdeServicioExterno() {
         try {
-            // Aquí podrías usar RestTemplate o WebClient para hacer una llamada GET a:
+            // RestTemplate para hacer una llamada GET a:
             // "http://worldclockapi.com/api/json/utc/now"
             //
-            // Ejemplo pseudo-código:
             // RestTemplate restTemplate = new RestTemplate();
             // ResponseEntity<Map> response = restTemplate.getForEntity("http://worldclockapi.com/api/json/utc/now", Map.class);
             // Map body = response.getBody();
@@ -134,7 +133,7 @@ public class ComprobantePrestamoService {
             // LocalDate fecha = LocalDate.parse(currentDateTime.substring(0, 10)); // "YYYY-MM-DD"
             // return fecha;
 
-            // Como no tenemos acceso real en este ejemplo, simulamos que falla y hacemos fallback:
+            // Simular que falla y hacer fallback:
             throw new RuntimeException("Fallo en la conexión a worldclockapi");
         } catch (Exception e) {
             // Fallback
