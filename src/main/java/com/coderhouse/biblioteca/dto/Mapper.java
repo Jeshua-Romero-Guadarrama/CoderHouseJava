@@ -1,6 +1,7 @@
 package com.coderhouse.biblioteca.dto;
 
 import java.util.stream.Collectors;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import com.coderhouse.biblioteca.model.Autor;
 import com.coderhouse.biblioteca.model.Editorial;
@@ -10,10 +11,21 @@ import com.coderhouse.biblioteca.model.Socio;
 
 /**
  * Clase de utilidades que mapea Entidad ↔ DTO.
+ * <p>
+ * Esta clase proporciona métodos estáticos para convertir entre las entidades del dominio
+ * y sus correspondientes objetos de transferencia de datos (DTO). Esto facilita la separación
+ * de la lógica de negocio de la presentación y permite adaptar la información para las API.
+ * </p>
  */
+@Schema(description = "Utilidad para mapear entidades a DTO y viceversa. Provee métodos para convertir objetos de dominio a sus representaciones DTO y retornar los datos adecuados para la capa de presentación.")
 public class Mapper {
 
-    // Convertir Autor -> AutorDTO
+    /**
+     * Convierte un objeto {@link Autor} a su representación en {@link AutorDTO}.
+     *
+     * @param autor Objeto de dominio Autor a convertir.
+     * @return Un objeto {@link AutorDTO} equivalente, o null si el autor es null.
+     */
     public static AutorDTO autorToDTO(Autor autor) {
         if (autor == null) {
             return null;
@@ -25,7 +37,12 @@ public class Mapper {
         return dto;
     }
 
-    // Convertir AutorDTO -> Autor
+    /**
+     * Convierte un objeto {@link AutorDTO} a su entidad de dominio {@link Autor}.
+     *
+     * @param dto Objeto AutorDTO a convertir.
+     * @return Un objeto {@link Autor} creado a partir del DTO, o null si el DTO es null.
+     */
     public static Autor dtoToAutor(AutorDTO dto) {
         if (dto == null) {
             return null;
@@ -36,7 +53,12 @@ public class Mapper {
         return autor;
     }
 
-    // Editorial -> EditorialDTO
+    /**
+     * Convierte un objeto {@link Editorial} a su representación en {@link EditorialDTO}.
+     *
+     * @param editorial Objeto Editorial a convertir.
+     * @return Un objeto {@link EditorialDTO} equivalente, o null si la editorial es null.
+     */
     public static EditorialDTO editorialToDTO(Editorial editorial) {
         if (editorial == null) {
             return null;
@@ -47,7 +69,12 @@ public class Mapper {
         return dto;
     }
 
-    // EditorialDTO -> Editorial
+    /**
+     * Convierte un objeto {@link EditorialDTO} a su entidad de dominio {@link Editorial}.
+     *
+     * @param dto Objeto EditorialDTO a convertir.
+     * @return Un objeto {@link Editorial} creado a partir del DTO, o null si el DTO es null.
+     */
     public static Editorial dtoToEditorial(EditorialDTO dto) {
         if (dto == null) {
             return null;
@@ -57,7 +84,12 @@ public class Mapper {
         return editorial;
     }
 
-    // Libro -> LibroDTO
+    /**
+     * Convierte un objeto {@link Libro} a su representación en {@link LibroDTO}.
+     *
+     * @param libro Objeto Libro a convertir.
+     * @return Un objeto {@link LibroDTO} equivalente, o null si el libro es null.
+     */
     public static LibroDTO libroToDTO(Libro libro) {
         if (libro == null) {
             return null;
@@ -76,14 +108,19 @@ public class Mapper {
         return dto;
     }
 
-    // LibroDTO -> Libro
+    /**
+     * Convierte un objeto {@link LibroDTO} a su entidad de dominio {@link Libro}.
+     *
+     * @param dto Objeto LibroDTO a convertir.
+     * @return Un objeto {@link Libro} creado a partir del DTO, o null si el DTO es null.
+     */
     public static Libro dtoToLibro(LibroDTO dto) {
         if (dto == null) {
             return null;
         }
         Libro libro = new Libro();
         libro.setTitulo(dto.getTitulo());
-        // Si el stock enviado es 0 o menor, asignar 1 por defecto
+        // Si el stock enviado es 0 o menor, asignar 1 por defecto.
         if (dto.getStock() <= 0) {
             libro.setStock(1);
         } else {
@@ -92,7 +129,12 @@ public class Mapper {
         return libro;
     }
 
-    // Socio -> SocioDTO
+    /**
+     * Convierte un objeto {@link Socio} a su representación en {@link SocioDTO}.
+     *
+     * @param socio Objeto Socio a convertir.
+     * @return Un objeto {@link SocioDTO} equivalente, o null si el socio es null.
+     */
     public static SocioDTO socioToDTO(Socio socio) {
         if (socio == null) {
             return null;
@@ -103,7 +145,12 @@ public class Mapper {
         return dto;
     }
 
-    // SocioDTO -> Socio
+    /**
+     * Convierte un objeto {@link SocioDTO} a su entidad de dominio {@link Socio}.
+     *
+     * @param dto Objeto SocioDTO a convertir.
+     * @return Un objeto {@link Socio} creado a partir del DTO, o null si el DTO es null.
+     */
     public static Socio dtoToSocio(SocioDTO dto) {
         if (dto == null) {
             return null;
@@ -113,7 +160,12 @@ public class Mapper {
         return socio;
     }
 
-    // Prestamo -> PrestamoDTO
+    /**
+     * Convierte un objeto {@link Prestamo} a su representación en {@link PrestamoDTO}.
+     *
+     * @param prestamo Objeto Prestamo a convertir.
+     * @return Un objeto {@link PrestamoDTO} equivalente, o null si el préstamo es null.
+     */
     public static PrestamoDTO prestamoToDTO(Prestamo prestamo) {
         if (prestamo == null) {
             return null;
@@ -127,7 +179,12 @@ public class Mapper {
         return dto;
     }
 
-    // PrestamoDTO -> Prestamo
+    /**
+     * Convierte un objeto {@link PrestamoDTO} a su entidad de dominio {@link Prestamo}.
+     *
+     * @param dto Objeto PrestamoDTO a convertir.
+     * @return Un objeto {@link Prestamo} creado a partir del DTO, o null si el DTO es null.
+     */
     public static Prestamo dtoToPrestamo(PrestamoDTO dto) {
         if (dto == null) {
             return null;
