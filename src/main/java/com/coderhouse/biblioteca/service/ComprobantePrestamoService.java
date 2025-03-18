@@ -21,6 +21,7 @@ import com.coderhouse.biblioteca.repository.ComprobantePrestamoRepository;
 import com.coderhouse.biblioteca.repository.DetallePrestamoRepository;
 import com.coderhouse.biblioteca.repository.LibroRepository;
 import com.coderhouse.biblioteca.repository.SocioRepository;
+import java.util.Map;
 
 @Service
 public class ComprobantePrestamoService {
@@ -132,7 +133,7 @@ public class ComprobantePrestamoService {
             // Realizar la petición GET y recibir la respuesta como Map
             ResponseEntity<Map> response = restTemplate.getForEntity(url, Map.class);
             Map body = response.getBody();
-    
+
             // Extraer el valor de "currentDateTime", ej. "2025-03-17T16:50Z"
             String currentDateTime = (String) body.get("currentDateTime");
             if (currentDateTime == null || currentDateTime.length() < 10) {

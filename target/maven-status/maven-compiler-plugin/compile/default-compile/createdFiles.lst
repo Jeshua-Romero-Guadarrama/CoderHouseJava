@@ -30,6 +30,7 @@ com\coderhouse\biblioteca\service\LibroService.class
 com\coderhouse\biblioteca\dto\PrestamoDTO.class
 com\coderhouse\biblioteca\model\Libro.class
 com\coderhouse\biblioteca\repository\EditorialRepository.class
+com\coderhouse\biblioteca\config\OpenAPIConfig.class
 com\coderhouse\biblioteca\repository\AutorRepository.class
 com\coderhouse\biblioteca\service\SocioService.class
 com\coderhouse\biblioteca\service\ComprobantePrestamoService.class
