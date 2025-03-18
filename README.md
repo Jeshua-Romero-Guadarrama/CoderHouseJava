@@ -314,3 +314,40 @@ curl -X POST "http://localhost:9090/api/comprobantes" \
   -H "Content-Type: application/json" \
   -d '{"socio":{"id":1},"lineas":[{"cantidad":5,"libro":{"id":3}}]}'
 ```
+
+## 7. Documentación de la API con Swagger/OpenAPI
+
+El proyecto integra **Springdoc OpenAPI** para generar de forma automática la documentación interactiva de la API. Gracias a esto, se puede consultar y probar todos los endpoints expuestos sin necesidad de herramientas externas adicionales.
+
+### ¿Cómo acceder a la documentación?
+
+1. **Inicia la aplicación**  
+   
+   Ejecutar el proyecto usando Maven:
+   
+   ```bash
+   mvn clean install
+   mvn spring-boot:run
+   ```
+   
+   Desde tu IDE ejecutando la clase `SpringBootBibliotecaApplication.java`.
+
+2. **Accede a Swagger UI**  
+
+   Una vez iniciada la aplicación (por defecto en el puerto `9090`), abre tu navegador y navega a:
+
+   ```
+   http://localhost:9090/swagger-ui/index.html
+   ```
+
+   Aquí encontrarás una interfaz interactiva con toda la documentación de la API, donde podrás:
+
+   - Visualizar los endpoints disponibles, sus métodos HTTP, parámetros y respuestas.
+   - Probar las peticiones directamente desde el navegador.
+
+### Detalles de la configuración
+
+- La configuración de Swagger/OpenAPI se encuentra en la clase [OpenAPIConfig.java](src/main/java/com/coderhouse/biblioteca/config/OpenAPIConfig.java), en el paquete `com.coderhouse.biblioteca.config`.  
+- Cada controlador y DTO incluye anotaciones de Swagger/OpenAPI (como `@Operation`, `@ApiResponse`, `@Schema`, etc.) para enriquecer la documentación.
+
+Con esta integración, la documentación de la API siempre estará actualizada de acuerdo con el código fuente y facilitará la exploración y prueba de los servicios disponibles.
